@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: posthookjob-demo01-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    spec:
+  template:
+    spec:
+      containers:
+      - name: demo
+        image: alpine
+        args:
+        - /bin/sh
+        - -c
+        - echo "Command executed from Posthook Job 01"
+      restartPolicy: OnFailure

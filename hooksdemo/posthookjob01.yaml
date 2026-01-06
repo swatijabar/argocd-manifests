@@ -1,10 +1,10 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: posthookjob-demo01-
+  name: posthookjob-demo01-
   annotations:
     argocd.argoproj.io/hook: PostSync
-    spec:
+spec:
   template:
     spec:
       containers:
